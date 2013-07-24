@@ -8,7 +8,7 @@ module GoogleReaderApi
 
     def initialize(hash,api)
       # strip the first 5 characters of the url (they are 'feed/')
-      @url = hash['id'][5..-1]
+      @url = CGI.escape(hash['id'][5..-1])
       @title = hash['title']
       # no idea what this is used for
       @sortid = hash['sortid']
